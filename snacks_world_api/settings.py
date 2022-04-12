@@ -13,16 +13,25 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import dj_database_url # add this
 import os # add this
+import dotenv #for the secret key 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
-
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
+# this is generic one: 
+BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k-jb^n17hm_ge5kf_^o&a(^(9^h9md2eftu$yu+#2+in6@5yt3'
-
+# in env
 # SECURITY WARNING: don't run with debug turned on in production!
+
+# Add .env variables anywhere before SECRET_KEY
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+# UPDATE secret key
+SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'snacksworld-api.herokuapp.com'] # 
@@ -80,14 +89,19 @@ WSGI_APPLICATION = 'snacks_world_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'snack_api',
-    # this refers to pgadmin etc - make sure its the same 
-    'USER': 'postgres',
-    'PASSWORD': 'coco',
-    'HOST': 'localhost'
-}
+    # use this when trying to go to react
+    'default':  {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+#     'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'snack_api',
+#     # this refers to pgadmin etc - make sure its the same 
+#     'USER': 'postgres',
+#     'PASSWORD': 'coco',
+#     'HOST': 'localhost'
+# }
 }
 db_from_env = dj_database_url.config(conn_max_age=600) # add this
 # gets update from enivornment variables

@@ -19,6 +19,8 @@ from django.conf.urls import include # add this
 
 urlpatterns = [
     path('api/snacks/', include('snacks_api.urls')), # add this
+    # FOR OTHER APPS/MODELS - >
+    # path('api/users', include('users_api.urls')), make users url 
     path('admin/', admin.site.urls),
 ]
 
