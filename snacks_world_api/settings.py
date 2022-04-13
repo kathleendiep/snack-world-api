@@ -31,7 +31,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
-
 # UPDATE secret key
 SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
 
