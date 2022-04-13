@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # UPDATE secret key
 # SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
-SECRET_KEY = str(os.environ.get("SECRET_KEY"))
+SECRET_KEY = os.environ.get["SECRET_KEY"]
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', 'snacksworld-api.herokuapp.com'] # 
 
@@ -79,18 +79,18 @@ WSGI_APPLICATION = 'snacks_world_api.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = {
     # use this when trying to go to react
-    'default':  {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-#     'default': {
-#     'ENGINE': 'django.db.backends.postgresql',
-#     'NAME': 'snack_api',
-#     # this refers to pgadmin etc - make sure its the same 
-#     'USER': 'postgres',
-#     'PASSWORD': 'coco',
-#     'HOST': 'localhost'
-# }
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'snack_api',
+        # this refers to pgadmin etc - make sure its the same 
+        'USER': 'postgres',
+        'PASSWORD': 'coco',
+        'HOST': 'localhost'
+        }
+    # 'default':  {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 db_from_env = dj_database_url.config(conn_max_age=600) # add this
 # gets update from enivornment variables

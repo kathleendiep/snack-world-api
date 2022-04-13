@@ -7,3 +7,4 @@ class Snack(models.Model):
     city = models.CharField(max_length=32)
     country = models.CharField(max_length=32)
     description = models.CharField(max_length=300)
+    image = models.CharField(max_length=300)
