@@ -19,8 +19,7 @@ class Migration(migrations.Migration):
                 ('category', models.CharField(max_length=32)),
                 ('city', models.CharField(max_length=32)),
                 ('country', models.CharField(max_length=32)),
-                ('description', models.CharField(max_length=100)),
-                ('image', models.CharField(max_length=100)),
+                ('description', models.CharField(max_length=100))
             ],
         ),
     ]
