@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # UPDATE secret key
 # SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
-SECRET_KEY = str(os.environ.get("SECRET_KEY"))
+# SECRET_KEY = str(os.environ.get("SECRET_KEY"))
+SECRET_KET = 'django-insecure-k-jb^n17hm_ge5kf_^o&a(^(9^h9md2eftu$yu+#2+in6@5yt3'
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', 'snacksworld-api.herokuapp.com'] # 
 
