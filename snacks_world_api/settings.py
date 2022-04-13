@@ -15,30 +15,15 @@ import os # add this
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
 # this is generic one: 
-
 from dotenv import load_dotenv
 load_dotenv()
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
-STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = str(os.environ.get("SECRET_KEY"))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
 # UPDATE secret key
-# SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
-# SECRET_KEY = str(os.environ.get("SECRET_KEY"))
+SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
+
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', 'snacksworld-api.herokuapp.com'] # 
 
