@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import dj_database_url # add this
 import os # add this
+from dotenv import load_dotenv
+load_dotenv()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
 # this is generic one:
@@ -76,7 +80,7 @@ WSGI_APPLICATION = 'snacks_world_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = {
-    # use this when trying to go to react
+    # this has new db: 
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'snack_api',
@@ -85,7 +89,12 @@ DATABASES = {
         'PASSWORD': 'coco',
         'HOST': 'localhost'
         }
+        # has an image error 
+        # 'default':  {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
 }
+
 db_from_env = dj_database_url.config(conn_max_age=600) # add this
 # gets update from enivornment variables
 DATABASES['default'].update(db_from_env) # add this
