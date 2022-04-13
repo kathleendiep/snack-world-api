@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import dj_database_url # add this
 import os # add this
+from dotenv import load_dotenv, find_dotenv
 
 
 
@@ -31,8 +32,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY="django-insecure-k-jb^n17hm_ge5kf_^o&a(^(9^h9md2eftu$yu+#2+in6@5yt3"
-
+load_dotenv(find_dotenv())
+SECRET_KEY = os.environ['SECRET_KEY']
 # UPDATE secret key
 
 DEBUG = True
