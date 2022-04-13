@@ -16,22 +16,18 @@ import os # add this
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
 # this is generic one: 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
+STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-# in env
-# SECURITY WARNING: don't run with debug turned on in production!
-
-# Add .env variables anywhere before SECRET_KEY
-# SECURITY WARNING: keep the secret key used in production secret!
 # UPDATE secret key
-# Add .env variables anywhere before SECRET_KEY
-# dotenv_file = os.path.join(BASE_DIR, ".env")
-# if os.path.isfile(dotenv_file):
-#     dotenv.load_dotenv(dotenv_file)
-# UPDATE secret key
-SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
+SECRET_KEY = str(os.environ['SECRET_KEY']) # Instead of your actual secret key
 
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', 'snacksworld-api.herokuapp.com'] # 

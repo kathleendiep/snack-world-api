@@ -2,3 +2,9 @@ db.sqlite3
 node_modules
 package-lock.json
 .env 
+# environment run locally
+run.sh 
+
+**/__pycache__
+*.pyc
+
