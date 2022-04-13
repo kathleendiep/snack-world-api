@@ -37,9 +37,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # UPDATE secret key
 
 DEBUG = True
-
 ALLOWED_HOSTS = ['localhost', 'snacksworld-api.herokuapp.com'] # 
-
 
 # Application definition
 
