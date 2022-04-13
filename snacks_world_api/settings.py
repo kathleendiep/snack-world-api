@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import dj_database_url # add this
 import os # add this
-from dotenv import load_dotenv
+import dotenv 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
 # this is generic one: 
@@ -27,14 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Add .env variables anywhere before SECRET_KEY
 
-# Get the base directory
-basepath = Path()
-basedir = str(basepath.cwd())
-# Load the environment variables
-envars = basepath.cwd() / '.env'
-load_dotenv(envars)
-# Read an environment variable.
-SECRET_KEY = os.getenv('SECRET_KEY')
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # UPDATE secret key
 
