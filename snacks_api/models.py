@@ -9,7 +9,8 @@ class Snack(models.Model):
     city = models.CharField(max_length=32)
     country = models.CharField(max_length=32)
     description = models.CharField(max_length=300)
-    image = models.ImageField(upload_to='uploaded_image', blank=True, null=True)
+    # need to set default as ''
+    image = models.FileField(upload_to='uploaded_image', default='')
 
 
 
