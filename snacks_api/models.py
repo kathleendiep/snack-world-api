@@ -1,5 +1,7 @@
 from platform import machine
 from django.db import models
+from cloudinary.models import CloudinaryField
+
 def nameFile(instance, filename):
     return '/'.join(['images', str(instance.name), filename])
 
@@ -12,7 +14,9 @@ class Snack(models.Model):
     description = models.CharField(max_length=300)
     # need to set default as ''
     # image = models.FileField(upload_to='uploaded_image', default='')
-    image = models.CharField(max_length=500)
+    image = CloudinaryField('image')
+
+
 
 
 

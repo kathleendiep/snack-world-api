@@ -1,10 +1,8 @@
 from rest_framework import generics
 from .serializers import SnackSerializer
 from .models import Snack
-# to define function 
-from django.http import JsonResponse
-from django.http import HttpResponseRedirect, HttpResponse
 import json
+from django.shortcuts import render
 
 # Create your views here.
 # controller function! (view in django - handles controls)

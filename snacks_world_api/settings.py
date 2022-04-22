@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from pathlib import Path
 import dj_database_url # add this
-import os # add this
+import os # add this for secret key
 from dotenv import load_dotenv
 load_dotenv()
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # edit this var
@@ -33,6 +36,7 @@ ALLOWED_HOSTS = ['localhost', 'snacksworld-api.herokuapp.com'] #
 INSTALLED_APPS = [
     'corsheaders', # add this
     'snacks_api', #add this
+    'cloudinary',
     'rest_framework',  # add this
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+cloudinary.config( 
+    cloud_name = "katdiep",
+    api_key = "477944852483154",
+    api_secret = "EFvPB11HqZykgw2QqhnaQ_0DffA" 
+)
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # this makes the cors package run for all requests.  A bit like app.use() in express
     'whitenoise.middleware.WhiteNoiseMiddleware', # add this
