@@ -2,8 +2,6 @@ from rest_framework import generics
 from .serializers import SnackSerializer
 from .models import Snack
 import json
-from django.shortcuts import render
-
 # Create your views here.
 # controller function! (view in django - handles controls)
 class SnackList(generics.ListCreateAPIView):
